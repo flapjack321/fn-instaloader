@@ -1,0 +1,10 @@
+version: 1.0
+provider:
+  name: openfaas
+  gateway: http://10.0.1.210:31112
+functions:
+  instaloader:
+    lang: python3-flask-armhf
+    handler: ./instaloader
+    image: ghcr.io/flapjack321/fn-instaloader:latest
+
