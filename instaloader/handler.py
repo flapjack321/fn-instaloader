@@ -196,6 +196,8 @@ def handle(req):
     if not downloader.download():
         return downloader.get_return_data()
 
+    return "Download of account successful", 200
+
 
 if __name__ == "__main__":
     from dotenv import load_dotenv
@@ -210,6 +212,4 @@ if __name__ == "__main__":
         "smb_share": os.getenv("smb_share"),
         "smb_directory": os.getenv("smb_directory")
     }
-    print(data)
-    sys.exit(0)
     print(handle(json.dumps(data)))
