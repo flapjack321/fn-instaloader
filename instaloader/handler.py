@@ -181,6 +181,7 @@ class Downloader(object):
                 fd.write(pf_content)
 
         logging.debug(f"All {len(downloaded_posts)} copied to SMB share")
+        return True
 
 
 def handle(req):
