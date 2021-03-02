@@ -180,22 +180,30 @@ class Downloader(object):
             with smbclient.open_file(filename, mode="wb") as fd:
                 fd.write(pf_content)
 
+        logging.debug(f"All {len(downloaded_posts)} copied to SMB share")
+
+
 def handle(req):
     """handle a request to the function
     Args:
         req (str): request body
     """
+    logging.debug("Creating downloader object")
     downloader = Downloader(req)
 
+    logging.debug("Validating input data")
     if not downloader.validate_data():
         return downloader.get_return_data()
 
+    logging.debug("Scanning for new posts from instagram account")
     if not downloader.scan_posts():
         return downloader.get_return_data()
 
+    logging.debug("Downloading new posts")
     if not downloader.download():
         return downloader.get_return_data()
 
+    logging.debug("Downloader complete. Exiting")
     return "Download of account successful", 200
 
 

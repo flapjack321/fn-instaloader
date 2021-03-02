@@ -1,4 +1,3 @@
-template
 build
 .env
 venv

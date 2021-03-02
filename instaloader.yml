@@ -7,4 +7,8 @@ functions:
     lang: python3-flask-armhf
     handler: ./instaloader
     image: ghcr.io/flapjack321/fn-instaloader:latest
-
+#    build_options:
+#      - dev
+#      - libressl-dev 
+#      - musl-dev 
+#      - libffi-dev
